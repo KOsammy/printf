@@ -35,7 +35,6 @@ void print_lowerhexadecimal(unsigned int n);
 void print_upperhexadecimal(unsigned int n);
 void buffer_add_string(Buffer *buf, const char *str);
 void print_string_custom(const char *str);
-void print_string_custom(const char *str);
 
 #endif /* MAIN_H */
 
