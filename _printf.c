@@ -1,4 +1,36 @@
 #include "main.h"
+#include <unistd.h>
+#include <stdarg.h>
+
+/**
+ * print_char - This handles the %c format
+ * @args: va_list contains the character to print
+ *
+ * Return: Number of characters printed
+ */
+int print_char(va_list args)
+{
+	return (_putchar(va_arg(args, int)));
+}
+
+/**
+ * print_string -This handles the %s format
+ * @args: va_list containing the string to print
+ *
+ * Return: Number of characters printed
+ */
+int print_string(va_list args)
+{
+	char *str = va_arg(args, char *);
+	int count = 0;
+
+	if (str == NULL)
+		str = "(null)";
+	while (*str)
+		count += _putchar(*str++);
+	return (count);
+}
+
 
 /**
  * _printf - This gives an output accroding to the format
@@ -10,7 +42,6 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i = 0, count = 0;
-	char *str;
 
 	va_start(args, format);
 	if (format == NULL)
@@ -23,18 +54,12 @@ int _printf(const char *format, ...)
 			i++;
 
 			if (format[i] == 'c')
-				count += _putchar(va_arg(args, int));
+				count += print_char(args);
 			else if (format[i] == 's')
-			{
-				str =va_arg(args, char *);
-				if (str == NULL)
-					str = "(null)";
-				while (*str)
-					count += _putchar(*str++);
-			}
+				count += print_string(args);
 			else if (format[i] == '%')
 				count += _putchar('%');
-			else 
+			else
 			{
 				count += _putchar('%');
 				count += _putchar(format[i]);
@@ -46,7 +71,7 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
-	
+
 	va_end(args);
 	return (count);
 }
