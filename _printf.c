@@ -1,27 +1,25 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "main.h"
-#include <unistd.h>
 #include <stdarg.h>
+#include "main.h"
 
 /**
- * print_char - This handles the %c format
- * @args: va_list contains the character to print
+ * print_char_format - handles the %c format
+ * @args: va_list containing the character to print
  *
  * Return: Number of characters printed
  */
-int print_char(va_list args)
+int print_char_format(va_list args)
 {
-	return (_putchar(va_arg(args, int)));
+	print_char(va_arg(args, int));
+	return (1);
 }
 
 /**
- * print_string -This handles the %s format
+ * print_string_format - handles the %s format
  * @args: va_list containing the string to print
  *
  * Return: Number of characters printed
  */
-int print_string(va_list args)
+int print_string_format(va_list args)
 {
 	char *str = va_arg(args, char *);
 	int count = 0;
@@ -29,97 +27,73 @@ int print_string(va_list args)
 	if (str == NULL)
 		str = "(null)";
 	while (*str)
-		count += _putchar(*str++);
+	{
+		print_char(*str++);
+		count++;
+	}
 	return (count);
 }
 
+/**
+ * handle_format - processes the format specifier
+ * @format: format specifier
+ * @args: va_list containing the arguments
+ *
+ * Return: Number of characters printed
+ */
+int handle_format(char format, va_list args)
+{
+	int count = 0;
+
+	if (format == 'c')
+		count = print_char_format(args);
+	else if (format == 's')
+		count = print_string_format(args);
+	else if (format == '%')
+	{
+		print_char('%');
+		count = 1;
+	}
+	else
+	{
+		print_char('%');
+		print_char(format);
+		count = 2;
+	}
+	return (count);
+}
 
 /**
- * _printf - This gives an output accroding to the format
- * @format: A character string with zero or more directives
+ * _printf - produces output according to a format
+ * @format: a character string composed of zero or more directives
  *
- * Return: the number of characters printed (excludung the null byte)
+ * Return: the number of characters printed (excluding the null byte)
  */
-<<<<<<< HEAD
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int i = 0, count = 0;
-=======
-int _printf(const char *format, ...) {
-    va_list args;
-    va_start(args, format);
-    int count = 0;
->>>>>>> refs/remotes/origin/main
 
-    while (*format) {
-        if (*format == '%') {
-            format++;
-            switch (*format) {
-                case 'c': {
-                    char c = (char) va_arg(args, int);
-                    putchar(c);
-                    count++;
-                    break;
-                }
-                case 's': {
-                    char *s = va_arg(args, char *);
-                    while (*s) {
-                        putchar(*s);
-                        s++;
-                        count++;
-                    }
-                    break;
-                }
-                case '%': {
-                    putchar('%');
-                    count++;
-                    break;
-                }
-                default: {
-                    putchar('%');
-                    putchar(*format);
-                    count += 2;
-                    break;
-                }
-            }
-        } else {
-            putchar(*format);
-            count++;
-        }
-        format++;
-    }
+	va_start(args, format);
+	if (format == NULL)
+		return (-1);
 
-<<<<<<< HEAD
 	while (format && format[i])
 	{
 		if (format[i] == '%')
 		{
 			i++;
-
-			if (format[i] == 'c')
-				count += print_char(args);
-			else if (format[i] == 's')
-				count += print_string(args);
-			else if (format[i] == '%')
-				count += _putchar('%');
-			else
-			{
-				count += _putchar('%');
-				count += _putchar(format[i]);
-			}
+			count += handle_format(format[i], args);
 		}
 		else
 		{
-			count += _putchar(format[i]);
+			print_char(format[i]);
+			count++;
 		}
 		i++;
 	}
 
 	va_end(args);
 	return (count);
-=======
-    va_end(args);
-    return count;
->>>>>>> refs/remotes/origin/main
 }
+
