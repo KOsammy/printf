@@ -2,12 +2,6 @@
 #include <stdio.h>
 #include "main.h"
 
-typedef struct
-{
-	char buffer[BUFFER_SIZE];
-	int index;
-} Buffer;
-
 
 /**
  * flush_buffer - Flushes the buffer to standard output.

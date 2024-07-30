@@ -7,20 +7,12 @@
  * Non-printable characters are printed as \x followed by the ASCII code
  * value in uppercase hexadecimal.
  */
-void print_string_custom(const char *str)
+void print_string_custom(unsigned char c)
 {
-	while (*str)
-	{
-		if (*str > 0 && (*str < 32 || *str >= 127))
-		{
-			buffer_add_char('\\');
-			buffer_add_char('x');
-			print_upperhexadecimal((unsigned int)*str);
-		}
-		else
-		{
-			buffer_add_char(*str);
-		}
-		str++;
-	}
+	const char *hex_digits = "0123456789ABCDEF";
+
+	_putchar('\\');
+	_putchar('x');
+	_putchar(hex_digits[c >> 4]);
+	_putchar(hex_digits[c & 0x0F]);
 }
