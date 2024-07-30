@@ -10,6 +10,9 @@
  * return: nothing
 */void print_int(int n)
 {
+	int digits[10];
+	int i = 0;
+
 	if (n == 0)
 	{
 		putchar('0');
@@ -26,8 +29,6 @@
 		putchar('-');
 		n = -n;
 	}
-	int digits[10];
-	int i = 0;
 
 	while (n > 0)
 	{
@@ -50,14 +51,16 @@
  * return: nothing
 */void print_integer(int i)
 {
+	char buffer[12];
+	int index = 0;
+	int j;
+	int is_negative = 0;
+
 	if (i == 0)
 	{
 		putchar('0');
 		return;
 	}
-	char buffer[12];
-	int index = 0;
-	int is_negative = 0;
 
 	if (i < 0)
 	{
@@ -76,7 +79,7 @@
 		buffer[index++] = '-';
 	}
 
-	for (int j = index - 1; j >= 0; j--)
+	for (j = index - 1; j >= 0; j--)
 	{
 		putchar(buffer[j]);
 	}

@@ -42,13 +42,19 @@
 	putchar('0'+ (n % 8));
 }
 
-void print_lowerhexadecimal(unsigned int n)
+
+/**
+ * print_lowerhexadecimal - prints lowercase hexadecimal
+ * @n: argument
+ * return: nothing
+*/void print_lowerhexadecimal(unsigned int n)
 {
+	int leftover = n % 16;
+
 	if (n / 16 != 0)
 	{
 		print_lowerhexadecimal(n / 16);
 	}
-	int leftover = n % 16;
 
 	if (leftover < 10)
 	{
@@ -60,13 +66,18 @@ void print_lowerhexadecimal(unsigned int n)
 	}
 }
 
-void print_upperhexadecimal(unsigned int n)
+/**
+ * print_upperhexadecimal - prints hexadecimal in uppercase
+ * @n: argument
+ * return: nothing
+*/void print_upperhexadecimal(unsigned int n)
 {
+	int leftover = n % 16;
+
 	if (n / 16 != 0)
 	{
 		print_upperhexadecimal(n / 16);
 	}
-	int leftover = n % 16;
 
 	if (leftover < 10)
 	{
