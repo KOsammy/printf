@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/******===HANDLER FUNCTIONS (%d, %c  and %s)===******/
+/******===HANDLER FUNCTIONS (%c  and %s)===******/
 
 /**
  * print_int - prints an integer
