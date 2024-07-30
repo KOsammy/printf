@@ -34,6 +34,53 @@ int print_string_format(va_list args)
 	return (count);
 }
 
+
+/**
+ * print_int_format - This handels the %d and %i formats
+ * @args: va_list contains the integer to print
+ *
+ * Return: Number of characters to be printed
+ */
+
+int print_int_format(va_list args)
+{
+	int num = va_arg(args, int);
+	int count = 0;
+	char buffer[12];
+	char *ptr = buffer;
+	unsigned int n;
+
+	if (num < 0)
+	{
+		print_char('-');
+		count++;
+		n = -num;
+	}
+	else
+		n = num;
+
+	if (n == 0)
+	{
+		print_char('0');
+		return (1);
+	}
+
+	while (n)
+	{
+		*ptr++ = (n % 10) + '0';
+		n /= 10;
+	}
+	ptr--;
+
+	while (ptr >= buffer)
+	{
+		print_char(*ptr--);
+		count++;
+	}
+
+	return (count);
+}
+
 /**
  * handle_format - processes the format specifier
  * @format: format specifier
@@ -41,6 +88,8 @@ int print_string_format(va_list args)
  *
  * Return: Number of characters printed
  */
+
+
 int handle_format(char format, va_list args)
 {
 	int count = 0;
@@ -49,6 +98,8 @@ int handle_format(char format, va_list args)
 		count = print_char_format(args);
 	else if (format == 's')
 		count = print_string_format(args);
+	else if (format == 'd' || format == 'i')
+		count = print_int_format(args);
 	else if (format == '%')
 	{
 		print_char('%');
