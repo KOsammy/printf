@@ -38,12 +38,6 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 					}
-				case '%':
-					{
-					putchar('%');
-					count++;
-					break;
-					}
 				default:
 					{
 					putchar('%');
