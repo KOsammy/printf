@@ -22,23 +22,8 @@ int _printf(const char *format, ...)
 			p++;
 			if (*p == '\0')
 				break;
-
 			switch (*p)
 			{
-				case 'd':
-					{
-					int d = va_arg(args, int);
-					print_int(d);
-					count++;
-					break;
-					}
-				case 'i':
-					{
-					int i = va_arg(args, int);
-					print_integer(i);
-					count++;
-					break;
-					}
 				case 'c':
 					{
 					char c = (char) va_arg(args, int);
@@ -50,41 +35,6 @@ int _printf(const char *format, ...)
 					{
 					char *s = va_arg(args, char *);
 					print_str(s);
-					count++;
-					break;
-					}
-				case 'b':
-					{
-					int b = va_arg(args, int);
-					print_binary(b);
-					count++;
-					break;
-					}
-				case 'u':
-					{
-					int u = va_arg(args, int);
-					print_unsigned(u);
-					count++;
-					break;
-					}
-				case 'o':
-					{
-					int o = va_arg(args, int);
-					print_octal(o);
-					count++;
-					break;
-					}
-				case 'x':
-					{
-					int x = va_arg(args, int);
-					print_lowerhexadecimal(x);
-					count++;
-					break;
-					}
-				case 'X':
-					{
-					int X = va_arg(args, int);
-					print_upperhexadecimal(X);
 					count++;
 					break;
 					}
