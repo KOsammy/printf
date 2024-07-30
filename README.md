@@ -1,0 +1,1 @@
+This is a Group poroject on Alx which is going to be done by me Appiah Djan Samuel and John Kennedy a fellow Alx SE learner. This project will be focusing on the printf function in c and how to use it.
