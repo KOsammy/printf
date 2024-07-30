@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -9,45 +11,104 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, count = 0;
-	char *str;
+	int count = 0;
+	const char *p;
 
 	va_start(args, format);
-	if (format == NULL)
-		return (-1);
-
-	while (format && format[i])
+	for (p = format; *p != '\0'; p++)
 	{
-		if (format[i] == '%')
+		if (*p == '%')
 		{
-			i++;
+			p++;
+			if (*p == '\0')
+				break;
 
-			if (format[i] == 'c')
-				count += _putchar(va_arg(args, int));
-			else if (format[i] == 's')
+			switch (*p)
 			{
-				str =va_arg(args, char *);
-				if (str == NULL)
-					str = "(null)";
-				while (*str)
-					count += _putchar(*str++);
-			}
-			else if (format[i] == '%')
-				count += _putchar('%');
-			else 
-			{
-				count += _putchar('%');
-				count += _putchar(format[i]);
+				case 'd':
+					{
+					int d = va_arg(args, int);
+					print_int(d);
+					count++;
+					break;
+					}
+				case 'i':
+					{
+					int i = va_arg(args, int);
+					print_integer(i);
+					count++;
+					break;
+					}
+				case 'c':
+					{
+					char c = (char) va_arg(args, int);
+					print_char(c);
+					count++;
+					break;
+					}
+				case 's':
+					{
+					char *s = va_arg(args, char *);
+					print_str(s);
+					count++;
+					break;
+					}
+				case 'b':
+					{
+					int b = va_arg(args, int);
+					print_binary(b);
+					count++;
+					break;
+					}
+				case 'u':
+					{
+					int u = va_arg(args, int);
+					print_unsigned(u);
+					count++;
+					break;
+					}
+				case 'o':
+					{
+					int o = va_arg(args, int);
+					print_octal(o);
+					count++;
+					break;
+					}
+				case 'x':
+					{
+					int x = va_arg(args, int);
+					print_lowerhexadecimal(x);
+					count++;
+					break;
+					}
+				case 'X':
+					{
+					int X = va_arg(args, int);
+					print_upperhexadecimal(X);
+					count++;
+					break;
+					}
+				case '%':
+					{
+					putchar('%');
+					count++;
+					break;
+					}
+				default:
+					{
+					putchar('%');
+					putchar(*p);
+					count += 2;
+					break;
+					}
 			}
 		}
 		else
 		{
-			count += _putchar(format[i]);
+			putchar(*p);
+			count++;
 		}
-		i++;
 	}
-	
 	va_end(args);
-	return (count);
+	return count;
 }
-
