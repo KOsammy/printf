@@ -15,18 +15,18 @@
 
 	if (n == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		return;
 	}
 	if (n == -2147483648)
 	{
-		putchar('-');
-		putchar('2');
+		_putchar('-');
+		_putchar('2');
 		n = 147483648;
 	}
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		n = -n;
 	}
 
@@ -40,7 +40,7 @@
 	while (i > 0)
 	{
 		i--;
-		putchar('0' + digits[i]);
+		_putchar('0' + digits[i]);
 	}
 }
 
@@ -58,7 +58,7 @@
 
 	if (i == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		return;
 	}
 
@@ -81,6 +81,6 @@
 
 	for (j = index - 1; j >= 0; j--)
 	{
-		putchar(buffer[j]);
+		_putchar(buffer[j]);
 	}
 }

@@ -11,7 +11,7 @@
 		return;
 
 	print_digits(n / 10);
-	putchar((n % 10) + '0');
+	_putchar((n % 10) + '0');
 }
 
 /***=====FORMAT SPECIFIERS FUNCTIONS======***/
@@ -39,7 +39,7 @@
 	{
 		print_octal(n / 8);
 	}
-	putchar('0'+ (n % 8));
+	_putchar('0'+ (n % 8));
 }
 
 
@@ -58,11 +58,11 @@
 
 	if (leftover < 10)
 	{
-		putchar('0' + leftover);
+		_putchar('0' + leftover);
 	}
 	else
 	{
-		putchar('a' + (leftover - 10));
+		_putchar('a' + (leftover - 10));
 	}
 }
 
@@ -81,10 +81,10 @@
 
 	if (leftover < 10)
 	{
-		putchar('0' + leftover);
+		_putchar('0' + leftover);
 	}
 	else
 	{
-		putchar('A' + (leftover - 10));
+		_putchar('A' + (leftover - 10));
 	}
 }

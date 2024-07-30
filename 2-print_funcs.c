@@ -15,7 +15,7 @@
 
 	if (i == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		return;
 	}
 
@@ -27,6 +27,6 @@
 
 	for (j = index - 1; j >= 0; j--)
 	{
-		putchar(buffer[j]);
+		_putchar(buffer[j]);
 	}
 }

@@ -10,7 +10,7 @@
  * return: nothing
 */void print_char(char c)
 {
-	putchar(c);
+	_putchar(c);
 }
 
 
@@ -22,6 +22,6 @@
 {
 	while (*s)
 	{
-		putchar(*s++);
+		_putchar(*s++);
 	}
 }
