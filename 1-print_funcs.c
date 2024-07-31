@@ -5,11 +5,11 @@
 /******===HANDLER FUNCTONS (%d and %i)===******/
 
 
-/**
- * print_int - prints an integer
- * @n: integer argument
- * return: nothing
-*/void print_int(int n)
+	/**
+	* print_int - prints an integer
+	* @n: integer argument
+	* return: nothing
+	*/void print_int(int n)
 {
 	int digits[10];
 	int i = 0;
@@ -46,11 +46,11 @@
 }
 
 
-/**
- * print_int - prints an integer
- * @i: integer argument
- * return: nothing
-*/void print_integer(int i)
+	/**
+	* print_int - prints an integer
+	* @i: integer argument
+	* return: nothing
+	*/void print_integer(int i)
 {
 	char buffer[12];
 	int index = 0;

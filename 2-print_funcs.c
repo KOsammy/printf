@@ -3,12 +3,11 @@
 
 /******===HANDLER FUNCTION (%b)===******/
 
-/**
- * print_binary - Print an unsigned integer in binary format
- * @args: list of argument 
- * return: count
- */
-int print_binary_format(va_list args)
+	/**
+	* print_binary - Print an unsigned integer in binary format
+	* @args: list of argument
+	* return: count
+	*/int print_binary_format(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	int count = 0;
@@ -19,7 +18,7 @@ int print_binary_format(va_list args)
 	if (num == 0)
 	{
 		putchar('0');
-		return 1;
+		return (1);
 	}
 
 	while (num > 0)
@@ -35,6 +34,6 @@ int print_binary_format(va_list args)
 		count++;
 	}
 
-	return count;
+	return (count);
 }
 

@@ -6,16 +6,20 @@
 
 #define BUFFER_SIZE 1024
 
-/**
- * struct Buffer - A structure to manage a local buffer for efficient writing.
- * @buffer: An array of characters to hold the data before writing.
- * @index: An integer to track the current position in the buffer.
- *
- * This structure is used to accumulate output in a local buffer
- * and write it to the standard output in larger chunks to minimize
- * the number of write system calls.
- */
-typedef struct
+	/**
+	* struct Buffer - A structure to manage a local buffer
+	* for efficient writing.
+	* @buffer: An array of characters to hold the data
+	* before writing.
+	* @index: An integer to track the current position
+	* in the buffer.
+	*
+	* Description: structure is used
+	* to accumulate output in a local buffer
+	* and write it to the standard output
+	* in larger chunks to minimize
+	* the number of write system calls.
+	*/typedef struct
 {
 	char buffer[BUFFER_SIZE];
 	int index;

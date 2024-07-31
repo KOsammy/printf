@@ -25,6 +25,7 @@
 	while (num > 0)
 	{
 		int remainder = num % 16;
+
 		if (remainder < 10)
 			buffer[i++] = remainder + '0';
 		else
