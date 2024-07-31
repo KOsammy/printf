@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-/******===HANDLER FUNCTION (%b)===******/
+/******=== HANDLER FUNCTION (%b) ===******/
 
 	/**
 	* print_binary - Print an unsigned integer in binary format

@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include "main.h"
 
-/***=====FORMAT SPECIFIERS FUNCTIONS======***/
+/***===== FORMAT SPECIFIERS FUNCTIONS (%u, %o, %x & %X) ======***/
 
 	/**
 	* print_unsigned - prints unsigned integer

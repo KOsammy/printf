@@ -11,15 +11,3 @@
 {
 	_putchar(c);
 }
-
-	/**
-	* print_str - prints string
-	* @*s: string pointer
-	* return: nothing
-	*/void print_str(const char *s)
-{
-	while (*s)
-	{
-		_putchar(*s++);
-	}
-}
