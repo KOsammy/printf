@@ -26,7 +26,10 @@ int print_string_format(va_list args)
 	int count = 0;
 
 	if (str == NULL)
-		*str = "";
+	{
+		*str = "(nil)";
+		return (5);
+	}
 	while (*str)
 	{
 		print_char(*str++);
