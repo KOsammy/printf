@@ -111,7 +111,7 @@ int handle_format(char format, va_list args)
 		count = print_unsigned_int_format(args);
 	else if (format == 'o')
 		count = print_octal_format(args);
-	else if (format == 'o')
+	else if (format == 'p')
 		count = print_pointer_format(args);
 	else if (format == '%')
 	{
