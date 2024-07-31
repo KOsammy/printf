@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include "main.h"
 
 /******=== HANDLER FUNCTION (%b) ===******/
 
@@ -17,7 +18,7 @@
 
 	if (num == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		return (1);
 	}
 
@@ -30,7 +31,7 @@
 
 	for (j = i - 1; j >= 0; j--)
 	{
-		putchar(binary[j] + '0');
+		_putchar(binary[j] + '0');
 		count++;
 	}
 
