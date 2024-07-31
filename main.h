@@ -29,6 +29,7 @@ void print_integer(int i);
 void print_char(char c);
 void print_str(const char *s);
 void print_binary(unsigned int i);
+int print_binary_format(va_list args);
 void print_unsigned(unsigned int n);
 void print_octal(unsigned int n);
 void print_lowerhexadecimal(unsigned int n);

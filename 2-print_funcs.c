@@ -1,33 +1,39 @@
+#include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include "main.h"
 
 /******===HANDLER FUNCTION (%b)===******/
 
 /**
  * print_binary - Print an unsigned integer in binary format
- * @i: The unsigned integer to print
- * return: nothing
-*/void print_binary(unsigned int i)
+ * @args: list of argument 
+ * return: count
+ */
+int print_binary_format(va_list args)
 {
-	char buffer[32];
-	int index = 0;
-	int j;
+	unsigned int num = va_arg(args, unsigned int);
+	int count = 0;
+	int binary[32];
+	int i = 0;
 
-	if (i == 0)
+	if (num == 0)
 	{
-		_putchar('0');
-		return;
+		putchar('0');
+		return 1;
 	}
 
-	while (i > 0)
+	while (num > 0)
 	{
-		buffer[index++] = (i % 2) + '0';
-		i /= 2;
+		binary[i] = num % 2;
+		num = num / 2;
+		i++;
 	}
 
-	for (j = index - 1; j >= 0; j--)
+	for (int j = i - 1; j >= 0; j--)
 	{
-		_putchar(buffer[j]);
+		putchar(binary[j] + '0');
+		count++;
 	}
+
+	return count;
 }
+

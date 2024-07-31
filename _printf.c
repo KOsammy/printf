@@ -100,6 +100,8 @@ int handle_format(char format, va_list args)
 		count = print_string_format(args);
 	else if (format == 'd' || format == 'i')
 		count = print_int_format(args);
+	else if (format == 'b')
+		count = print_binary_format(args);
 	else if (format == '%')
 	{
 		print_char('%');
