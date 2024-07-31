@@ -33,7 +33,8 @@
 		num = num / 16;
 	}
 
-	printf("0x");
+	_putchar('0');
+	_putchar('x');
 	count += 2;
 
 	for (j = i - 1; j >= 0; j--)
