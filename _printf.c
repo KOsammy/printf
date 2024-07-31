@@ -103,12 +103,16 @@ int handle_format(char format, va_list args)
 		count = print_int_format(args);
 	else if (format == 'b')
 		count = print_binary_format(args);
-	else if (format == 'x' || format == 'X')
+	else if (format == 'x')
 		count = print_hex_format(args);
+	else if (format == 'X')
+		count = print_uppercase_hex_format(args);
 	else if (format == 'u')
 		count = print_unsigned_int_format(args);
 	else if (format == 'o')
 		count = print_octal_format(args);
+	else if (format == 'o')
+		count = print_pointer_format(args);
 	else if (format == '%')
 	{
 		print_char('%');

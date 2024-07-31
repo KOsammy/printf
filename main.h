@@ -33,6 +33,8 @@ int print_binary_format(va_list args);
 int print_unsigned_int_format(va_list args);
 int print_octal_format(va_list args);
 int print_hex_format(va_list args);
+int print_pointer_format(va_list args);
+int print_uppercase_hex_format(va_list args);
 void print_unsigned(unsigned int n);
 void print_octal(unsigned int n);
 void print_lowerhexadecimal(unsigned int n);
