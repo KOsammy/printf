@@ -26,7 +26,7 @@ int print_string_format(va_list args)
 	int count = 0;
 
 	if (str == NULL)
-		return (NULL);
+
 	while (*str)
 	{
 		print_char(*str++);
