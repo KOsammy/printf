@@ -1,47 +1,76 @@
 #include <stdio.h>
+#include <stdarg.h>
 #include "main.h"
-
-
-/***======HELPER FUNCTION======***/
-/**
- * print_digits - prints digits
- * @n: argument
- * return: nothing
- */void print_digits(unsigned int n)
-{
-	if (n == 0)
-		return;
-
-	print_digits(n / 10);
-	_putchar((n % 10) + '0');
-}
 
 /***=====FORMAT SPECIFIERS FUNCTIONS======***/
 
 /**
  * print_unsigned - prints unsigned integer
  * @arg: takes an unsigned integer as argument
- * return: nothing
- */void print_unsigned(unsigned int n)
+ * return: count
+ */
+int print_unsigned_int_format(va_list args)
 {
-	if (n == 0)
-		return;
-	else
-		print_digits(n);
+	unsigned int num = va_arg(args, unsigned int);
+	int count = 0;
+	char buffer[20];
+	int i = 0;
+	int j;
+
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
+	while (num > 0)
+	{
+		buffer[i++] = (num % 10) + '0';
+		num = num / 10;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(buffer[j]);
+		count++;
+	}
+
+	return (count);
 }
 
 
 /**
  * print_octal - prints integer in octal format
- * @n: argument
- * return: nothing
- */void print_octal(unsigned int n)
+ * @arg: argument
+ * return: count
+ */
+int print_octal_format(va_list args)
 {
-	if (n / 8 != 0)
+	unsigned int num = va_arg(args, unsigned int);
+	int count = 0;
+	char buffer[20];
+	int i = 0;
+	int j;
+
+	if (num == 0)
 	{
-		print_octal(n / 8);
+		_putchar('0');
+		return (1);
 	}
-	_putchar('0'+ (n % 8));
+
+	while (num > 0)
+	{
+		buffer[i++] = (num % 8) + '0';
+		num = num / 8;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(buffer[j]);
+		count++;
+	}
+
+	return (count);
 }
 
 
@@ -49,44 +78,35 @@
  * print_lowerhexadecimal - prints lowercase hexadecimal
  * @n: argument
  * return: nothing
-*/void print_lowerhexadecimal(unsigned int n)
+*/
+int print_hex_format(va_list args)
 {
-	int leftover = n % 16;
+	unsigned int num = va_arg(args, unsigned int);
+	int count = 0;
+	char buffer[20];
+	int i = 0;
 
-	if (n / 16 != 0)
+	if (num == 0)
 	{
-		print_lowerhexadecimal(n / 16);
-	}
-
-	if (leftover < 10)
-	{
-		_putchar('0' + leftover);
-	}
-	else
-	{
-		_putchar('a' + (leftover - 10));
-	}
-}
-
-/**
- * print_upperhexadecimal - prints hexadecimal in uppercase
- * @n: argument
- * return: nothing
-*/void print_upperhexadecimal(unsigned int n)
-{
-	int leftover = n % 16;
-
-	if (n / 16 != 0)
-	{
-		print_upperhexadecimal(n / 16);
+		_putchar('0');
+		return (1);
 	}
 
-	if (leftover < 10)
+	while (num > 0)
 	{
-		_putchar('0' + leftover);
+		int remainder = num % 16;
+		if (remainder < 10)
+			buffer[i++] = remainder + '0';
+		else
+			buffer[i++] = (remainder - 10) + 'a';
+		num = num / 16;
 	}
-	else
+
+	for (int j = i - 1; j >= 0; j--)
 	{
-		_putchar('A' + (leftover - 10));
+		_putchar(buffer[j]);
+		count++;
 	}
-}
+
+	return (count);
+i}
