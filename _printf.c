@@ -32,7 +32,7 @@ int print_string_format(va_list args)
 		print_char(*str++);
 		count++;
 	}
-	return (count);
+	return (count - 1);
 }
 
 
