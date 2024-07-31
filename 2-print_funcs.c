@@ -14,6 +14,7 @@ int print_binary_format(va_list args)
 	int count = 0;
 	int binary[32];
 	int i = 0;
+	int j;
 
 	if (num == 0)
 	{
@@ -28,7 +29,7 @@ int print_binary_format(va_list args)
 		i++;
 	}
 
-	for (int j = i - 1; j >= 0; j--)
+	for (j = i - 1; j >= 0; j--)
 	{
 		putchar(binary[j] + '0');
 		count++;
