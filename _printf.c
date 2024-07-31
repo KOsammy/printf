@@ -26,13 +26,13 @@ int print_string_format(va_list args)
 	int count = 0;
 
 	if (str == NULL)
-		str = "(null)";
+		return (NULL);
 	while (*str)
 	{
 		print_char(*str++);
 		count++;
 	}
-	return (count - 1);
+	return (count);
 }
 
 
