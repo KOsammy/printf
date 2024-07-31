@@ -1,8 +1,9 @@
 #include <stdarg.h>
 #include "main.h"
 
+
 /**
- * print_char_format - handles the %c format
+ * print_char_format - handles the %c format spec
  * @args: va_list containing the character to print
  *
  * Return: Number of characters printed
