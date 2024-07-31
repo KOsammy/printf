@@ -27,7 +27,8 @@ int print_string_format(va_list args)
 
 	if (str == NULL)
 	{
-		str = "(nil)";
+		str = "(null)";
+		return (6);
 	}
 	while (*str)
 	{
