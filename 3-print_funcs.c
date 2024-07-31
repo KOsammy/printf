@@ -108,3 +108,42 @@
 
 	return (count);
 }
+
+
+	/**
+	* print_uppererhexadecimal - prints uppercase hexadecimal
+	* @n: argument
+	* return: nothing
+	*/int print_uppercase_hex_format(va_list args)
+{
+	unsigned int num = va_arg(args, unsigned int);
+	int count = 0;
+	char buffer[20];
+	int i = 0;
+	int remainder;
+	int j;
+
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
+	while (num > 0)
+	{
+		remainder = num % 16;
+		if (remainder < 10)
+			buffer[i++] = remainder + '0';
+		else
+			buffer[i++] = (remainder - 10) + 'A';
+		num = num / 16;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(buffer[j]);
+		count++;
+	}
+
+	return (count);
+}
