@@ -139,7 +139,7 @@ int _printf(const char *format, ...)
 	int i = 0, count = 0;
 
 	va_start(args, format);
-	if (format == NULL)
+	if (format == NULL || format < 0)
 		return (-1);
 
 	while (format && format[i])
