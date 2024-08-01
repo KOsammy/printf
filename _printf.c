@@ -1,8 +1,9 @@
 #include <stdarg.h>
 #include "main.h"
 
+
 /**
- * print_char_format - handles the %c format
+ * print_char_format - handles the %c format spec
  * @args: va_list containing the character to print
  *
  * Return: Number of characters printed
@@ -100,6 +101,18 @@ int handle_format(char format, va_list args)
 		count = print_string_format(args);
 	else if (format == 'd' || format == 'i')
 		count = print_int_format(args);
+	else if (format == 'b')
+		count = print_binary_format(args);
+	else if (format == 'x')
+		count = print_hex_format(args);
+	else if (format == 'X')
+		count = print_uppercase_hex_format(args);
+	else if (format == 'u')
+		count = print_unsigned_int_format(args);
+	else if (format == 'o')
+		count = print_octal_format(args);
+	else if (format == 'p')
+		count = print_pointer_format(args);
 	else if (format == '%')
 	{
 		print_char('%');
@@ -129,7 +142,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	while (format && format[i])
+	while (format && format[i] && i >= 0)
 	{
 		if (format[i] == '%')
 		{
