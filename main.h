@@ -37,5 +37,6 @@ int print_pointer_format(va_list args);
 int print_uppercase_hex_format(va_list args);
 void buffer_add_string(Buffer *buf, const char *str);
 int print_custom_string_format(va_list args);
+int print_unsigned_format(va_list args, char flags char, length, char specifier);
 
 #endif /* MAIN_H */
