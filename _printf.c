@@ -113,6 +113,8 @@ int handle_format(char format, va_list args)
 		count = print_octal_format(args);
 	else if (format == 'p')
 		count = print_pointer_format(args);
+	else if (format == 'S')
+		count = print_custom_string_format(args);
 	else if (format == '%')
 	{
 		print_char('%');
